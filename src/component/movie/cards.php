@@ -66,7 +66,7 @@ $movies = array(
     ),
     array(
         'title' => 'gundam freedom',
-        'poster' => 'public/assets/img/mobile suit gundam seed freedom.jpg',
+        'poster' => 'public/assets/img/mobile suit gundam seed freedom.jpg',                                   
         'genre' => 'Adventure, Fantasy',
         'synopsis' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum id sapien vehicula, eleifend dolor et, interdum lectus.',
         'endpoint' => 'movie2'

@@ -1,4 +1,4 @@
-<nav class="bg-pink-500">
+<nav class="bg-gray-800 border-b-2 boder-gray-800">
     <div class="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
         <div class="relative flex h-20 items-center justify-between">
             <div class="absolute inset-y-0 left-0 flex items-center sm:hidden">
@@ -87,7 +87,7 @@
 <script>
     function setActive(path) {
         const isActive = window.location.pathname.includes(path);
-        return isActive ? 'bg-pink-700 text-gray-100 hover:bg-pink-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium sm:text-base' : 'text-gray-100 hover:bg-pink-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium sm:text-base';
+        return isActive ? 'bg-gray-700 text-gray-100 hover:bg-gray-800 hover:text-white rounded-md px-3 py-2 text-sm font-medium sm:text-base' : 'text-gray-100 hover:bg-pink-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium sm:text-base';
     }
 
     // Set active class pada link berdasarkan path
