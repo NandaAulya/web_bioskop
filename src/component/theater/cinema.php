@@ -5,10 +5,10 @@ $theaters = array(
         'poster' => 'https://lh3.googleusercontent.com/p/AF1QipMp0tJkXdycG0a4Rx-exEbyLY0AlxxLFaOUKX_h=s1360-w1360-h1020',
         'icon' => 'http://www.w3.org/2000/svg',
         'location' => 'jl.walikota mustajab no.1 ketapang kec.genteng,surabaya',
-        'endpoint' => ''
+        'endpoint' => 'card movie'
     ),
-    array(
-        'title' => 'tunjungan plaza surabaya',
+    array(  
+        'title' => 'tunjungan plaza ',
         'poster' => 'https://lapispahlawan.co.id/uploads/2/2021-08/tunjungan-plaza-surabaya.jpg',
         'icon' => 'http://www.w3.org/2000/svg',
         'location' => 'Jl.Jenderal Basuki Rachmat No.8-12, Kedungdoro, Kec. Tegalsari, Surabaya',
@@ -29,11 +29,10 @@ $theaters = array(
         'endpoint' => ''
     ),
     array(
-        'title' => 'ciputra world surabaya',
+        'title' => 'ciputra world',
         'poster' => 'https://ciputraworldsurabaya.com/mall/wp-content/uploads/2021/11/CWS-1.jpg',
         'icon' => 'http://www.w3.org/2000/svg',
-        'location' => 'Gn. Sari, Kec. Dukuhpakis, Surabaya, Jawa Timur
-        ',
+        'location' => 'Gn. Sari, Kec. Dukuhpakis, Surabaya, Jawa Timur',
         'endpoint' => ''
     ),
     array(
@@ -44,7 +43,7 @@ $theaters = array(
         'endpoint' => ''
     ),
     array(
-        'title' => 'pakuwon mall surabaya',
+        'title' => 'pakuwon mall ',
         'poster' => 'https://transfashionindonesia.com/wp-content/uploads/2023/11/Pakuwon-Mall-Surabaya_02.jpg',
         'icon' => 'http://www.w3.org/2000/svg',
         'location' => 'Jl. Mayjend. Jonosewojo No.2, Babatan, Kec. Wiyung, Surabaya',
@@ -71,20 +70,62 @@ $theaters = array(
         'location' => 'Jl. Mayjend. Jonosewojo No.9, Pradahkalikendal, Kec. Dukuhpakis, Surabaya,',
         'endpoint' => ''
     ),
+    array(
+        'title' => 'lenmarc mall',
+        'poster' => 'https://image.jpnn.com/resize/570x380-80/arsip/normal/2017/02/13/ee92f70da7642465396efd89f219b919.jpg',
+        'icon' => 'http://www.w3.org/2000/svg',
+        'location' => 'Jl. Mayjend. Jonosewojo No.9, Pradahkalikendal, Kec. Dukuhpakis, Surabaya,',
+        'endpoint' => ''
+    ),
+    array(
+        'title' => 'lenmarc mall',
+        'poster' => 'https://image.jpnn.com/resize/570x380-80/arsip/normal/2017/02/13/ee92f70da7642465396efd89f219b919.jpg',
+        'icon' => 'http://www.w3.org/2000/svg',
+        'location' => 'Jl. Mayjend. Jonosewojo No.9, Pradahkalikendal, Kec. Dukuhpakis, Surabaya,',
+        'endpoint' => ''
+    ),
+    array(
+        'title' => 'lenmarc mall',
+        'poster' => 'https://image.jpnn.com/resize/570x380-80/arsip/normal/2017/02/13/ee92f70da7642465396efd89f219b919.jpg',
+        'icon' => 'http://www.w3.org/2000/svg',
+        'location' => 'Jl. Mayjend. Jonosewojo No.9, Pradahkalikendal, Kec. Dukuhpakis, Surabaya,',
+        'endpoint' => ''
+    ),
+    array(
+        'title' => 'lenmarc mall',
+        'poster' => 'https://image.jpnn.com/resize/570x380-80/arsip/normal/2017/02/13/ee92f70da7642465396efd89f219b919.jpg',
+        'icon' => 'http://www.w3.org/2000/svg',
+        'location' => 'Jl. Mayjend. Jonosewojo No.9, Pradahkalikendal, Kec. Dukuhpakis, Surabaya,',
+        'endpoint' => ''
+    ),
+    array(
+        'title' => 'lenmarc mall',
+        'poster' => 'https://image.jpnn.com/resize/570x380-80/arsip/normal/2017/02/13/ee92f70da7642465396efd89f219b919.jpg',
+        'icon' => 'http://www.w3.org/2000/svg',
+        'location' => 'Jl. Mayjend. Jonosewojo No.9, Pradahkalikendal, Kec. Dukuhpakis, Surabaya,',
+        'endpoint' => ''
+    ),
+    array(
+        'title' => 'lenmarc mall',
+        'poster' => 'https://image.jpnn.com/resize/570x380-80/arsip/normal/2017/02/13/ee92f70da7642465396efd89f219b919.jpg',
+        'icon' => 'http://www.w3.org/2000/svg',
+        'location' => 'Jl. Mayjend. Jonosewojo No.9, Pradahkalikendal, Kec. Dukuhpakis, Surabaya,',
+        'endpoint' => ''
+    ),
 );
 ?>
-<div class="flex flex-row flex-wrap gap-6 ml-10 mt-10 mx-auto drop-shadow-auto ">
+<div class="flex flex-row flex-wrap gap-6 ml-10 mt-10 mx-auto drop-shadow-auto">
     <?php foreach ($theaters as $theater): ?>
         <div class="shadow-2xl overflow-hidden rounded-md shadow transition hover:shadow-lg mb-4" style="width: 300px;">
             <img src="<?php echo $theater['poster']; ?>" class="h-[150px] w-[300px] object-cover">
             <div class="bg-white-200 p-2 sm:p-4">
                 <a href="#">
-                    <h3 class="capitalize text-gray-600 text-xl font-bold hover:text-gray-500 transition">
+                    <h3 class="capitalize text-gray-500 text-2xl font-bold hover:text-gray-700 transition font-poppins">
                         <?php echo $theater['title']; ?>
                     </h3>
                 </a>
-                <div class="flex items-center">
-                    <i class="fa-solid fa-location-dot"></i>
+                <div class="flex items-center text-gray-800">
+                        <i class="fa-solid fa-location-dot"></i>
                     <div class="ml-4 mt-3">
                         <p class="capitalize text-sm"><?php echo $theater['location']; ?></p>
                     </div>

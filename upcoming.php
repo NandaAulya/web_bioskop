@@ -10,7 +10,9 @@
 
 <body>
     <?php include 'src/component/utils/nav.php' ?>
+    <div class="bg-gray-200">
     <?php include 'src/component/movie/cards.php' ?>
+    </div>
 
 </body>
 

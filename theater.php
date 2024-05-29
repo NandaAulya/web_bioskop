@@ -10,7 +10,9 @@
 
 <body>
   <?php include 'src/component/utils/nav.php' ?>
+  <div class="">
   <?php include 'src/component/theater/cinema.php' ?>
+  </div>
   
 </body>
 
