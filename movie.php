@@ -18,8 +18,8 @@
         <img class="w-full max-w-screen-lg h-[380px] mb-8 object-cover rounded-md"
             src="https://ntvb.tmsimg.com/assets/p26294774_v_h8_ab.jpg?w=960&h=540">
         <div class="w-full max-w-screen-lg">
-            <h1 class="text-3xl sm:text-4xl font-bold mb-4 capitalize text-gray-800">Arthur the King</h1>
-            <p class="text-2xl tracking-widest text-gray-800 mb-4">Adventure</p>
+            <h1 class="text-3xl sm:text-4xl font-bold mb-4 capitalize text-black">Arthur the King</h1>
+            <p class="text-2xl tracking-widest text-black mb-4">Adventure</p>
             <p class="text-lg sm:text-xl leading-relaxed mb-8 text-black">
             Kisah dimulai dengan Michael Light (diperankan oleh Mark Wahlberg), seorang
             pembalap petualangan paruh baya yang sedang mencari kesempatan terakhir untuk
