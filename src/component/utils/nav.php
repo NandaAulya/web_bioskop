@@ -1,4 +1,4 @@
-<nav class="bg-gray-900 z-10 w-full  boder-gray-800">
+<nav class="z-10 w-full border-b-2 bg-[#060614]">
     <div class="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
         <div class="relative flex h-20 items-center justify-between">
             <div class="absolute inset-y-0 left-0 flex items-center sm:hidden">
@@ -71,7 +71,7 @@
                         class="z-50 absolute right-0 mt-2 w-48 origin-top-right rounded-md bg-pink-200 shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none z-10"
                         role="menu" aria-orientation="vertical" aria-labelledby="user-menu-button" tabindex="100">
                         <!-- Active: "bg-gray-100", Not Active: "" -->
-                        <a href="#" class="block px-4 py-2 text-sm text-white-200 hover:bg-gray-100" role="menuitem"
+                        <a href= "#" class="block px-4 py-2 text-sm text-white-200 hover:bg-gray-100" role="menuitem"
                             tabindex="-1" id="profile">Your Profile</a>
                         <a href="#" class="block px-4 py-2 text-sm text-white-200 hover:bg-gray-100" role="menuitem"
                             tabindex="-1" id="setting">Settings</a>
@@ -87,7 +87,7 @@
 <script>
     function setActive(path) {
         const isActive = window.location.pathname.includes(path);
-        return isActive ? 'bg-gray-700 text-gray-100 hover:bg-gray-800 hover:text-white rounded-md px-3 py-2 text-sm font-medium sm:text-base' : 'text-gray-100 hover:text-white rounded-md px-3 py-2 text-sm font-medium sm:text-base';
+        return isActive ? 'bg-gray-700 text-[#ebebf8] hover:bg-[#c65482] hover:text-white rounded-md px-3 py-2 text-sm font-medium sm:text-base' : 'text-gray-100 hover:text-white rounded-md px-3 py-2 text-sm font-medium sm:text-base';
     }
 
     // Set active class pada link berdasarkan path

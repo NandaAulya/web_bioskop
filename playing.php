@@ -8,11 +8,9 @@
     <?php include 'src/component/utils/meta.php' ?>
 </head>
 
-<body>
+<body style="background-color: #060614">
     <?php include 'src/component/utils/nav.php' ?>
-    <div class="bg-gray-200">
     <?php include 'src/component/movie/cards.php'?>
-    </div>
 </body>
 
 </html>

@@ -170,8 +170,8 @@ $movies = array(
                     <p class="text-white font-bold text-xl mb-2 line-clamp-2 text-center"><?php echo $movie['title']; ?></p>
                     <p class="text-sm text-gray-300 mb-2"><?php echo $movie['genre']; ?></p>
                     <div class="text-sm flex text-gray-300 line-clamp-3 mb-4"><?php echo $movie['synopsis']; ?></div>
-                    <a href="/movies/<?php echo $movie['endpoint']; ?>"
-                        class="inline-block bg-white text-blue-600 px-4 py-2 rounded-lg text-sm font-medium hover:bg-blue-700 hover:text-white transition z-20">Book
+                    <a href="<?php echo $movie['endpoint']; ?>"
+                        class="inline-block bg-white text-gray-800 px-4 py-2 rounded-lg text-sm font-medium hover:bg-[#8f94da] hover:text-white transition z-20">Book
                         Now
                     </a>
                 </div>
