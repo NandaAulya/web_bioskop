@@ -10,7 +10,9 @@
 
 <body style="background-color: #060614">
   <?php include 'src/component/utils/nav.php' ?>
-  <?php include 'src/component/theater/cinema.php' ?>
+  <div>
+    <?php include 'src/component/theater/cinema.php' ?>
+  </div>
   
 </body>
 
