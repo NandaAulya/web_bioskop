@@ -38,7 +38,13 @@
                         <a href="#" class="text-xl font-semibold capitalize">grand city mall</a>
                         <span class="text-lg font-semibold">Rp.40,000</span>
                     </div>
-                    <p class="mt-2 text-sm text-[#e4e5f7]">01-05-2024</p>
+                    <div class="flex py-2 space-x-2">
+                        <a href="#" class="mt-2 text-sm text-[#e4e5f7] px-2 border ">01-05-2024</a>
+                        <a href="#" class="mt-2 text-sm text-[#e4e5f7] px-2 border">01-05-2024</a>
+                        <a href="#" class="mt-2 text-sm text-[#e4e5f7] px-2 border">01-05-2024</a>
+                        <a href="#" class="mt-2 text-sm text-[#e4e5f7] px-2 border">01-05-2024</a>
+                        <a href="#" class="mt-2 text-sm text-[#e4e5f7] px-2 border">01-05-2024</a>
+                    </div>
                     <div class="flex py-2 space-x-4">
                         <a href="#" class="py-2 px-4 border border-gray-400 bg-gray-100 text-gray-800 hover:bg-[#9398e0]">12:40</a>
                         <a href="#" class="py-2 px-4 border border-gray-400 bg-gray-100 text-gray-800 hover:bg-[#9398e0]">14:50</a>

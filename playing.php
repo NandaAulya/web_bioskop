@@ -10,7 +10,12 @@
 
 <body style="background-color: #060614">
     <?php include 'src/component/utils/nav.php' ?>
+<div class="text-4xl font-bold text-right mr-10 text-[#9398e0] uppercase mt-10">
+      <p>
+        tes
+    </p>
     <?php include 'src/component/movie/cards.php'?>
+    </div>
 </body>
 
 </html>
