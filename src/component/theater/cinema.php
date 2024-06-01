@@ -5,7 +5,7 @@ $theaters = array(
         'poster' => 'https://lh3.googleusercontent.com/p/AF1QipMp0tJkXdycG0a4Rx-exEbyLY0AlxxLFaOUKX_h=s1360-w1360-h1020',
         'icon' => 'http://www.w3.org/2000/svg',
         'location' => 'jl.walikota mustajab no.1 ketapang kec.genteng,surabaya',
-        'endpoint' => 'tfilm.php'
+        'endpoint' => 'tdetail.php'
     ),
     array(  
         'title' => 'tunjungan plaza ',
