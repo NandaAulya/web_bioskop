@@ -4,26 +4,49 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <?php $title = 'Arthur The king' ?>
-    <?php include 'src/component/utils/meta.php' ?>
+    <?php
+    $title = 'movies';
+    include 'config/config.php';
+    // TODO: ubah jadi controllerPenayangan
+    include 'controller/controllerFilm.php';
+    include 'controller/controllerBioskop.php';
+    include 'controller/controllerPenayangan.php';
+    ?>
 </head>
 
 <body style="background-color: #060614">
 
     <header>
-        <?php include 'src/component/utils/nav.php' ?>
+        <?php include 'includes/navbar.php';
+        $slug = $_GET['slug'];
+        $film = getFilmBySlug($slug);
+        //tambahkan validasi data ada/t
+        if ($film) {
+            $film = mysqli_fetch_assoc($film);
+        } else {
+            echo "Film not found.";
+        }
+
+        $jadwal = getPenayangan($slug);
+        if (!$jadwal) {
+            echo "Screening schedule not found.";
+            // Handle this error appropriately, maybe redirect or display a message
+        } else {
+            // Fetch all rows into an array
+            $jadwal = mysqli_fetch_all($jadwal, MYSQLI_ASSOC);
+        }
+        ?>
     </header>
-    <div class="flex flex-col items-center pt-10 px-20 ">
+
+    <div class="flex flex-col items-center pt-10 px-20">
         <img class="w-full max-w-screen-lg h-[380px] mb-8 object-cover rounded-md"
-            src="https://cdn0-production-images-kly.akamaized.net/uREWQuiEHX7_jutjSM5Z4oFJJUs=/0x1466:1661x2402/1200x675/filters:quality(75):strip_icc():format(webp)/kly-media-production/medias/4779503/original/046313600_1710993036-Arthur_the_King_0.jpg">
+            src="assets/images/banner/<?php echo $film['banner']; ?>">
+
         <div class="w-full max-w-screen-lg">
-            <h1 class="text-3xl sm:text-4xl font-bold mb-4 capitalize" style="color: #9398e0;">Arthur the King</h1>
-            <p class="text-2xl tracking-widest mb-4 text-[#c63a8d]">Adventure</p>
-            <p class="text-lg sm:text-xl leading-relaxed mb-8" style="color: #e4e5f7;">
-                Kisah dimulai dengan Michael Light (diperankan oleh Mark Wahlberg), seorang
-                pembalap petualangan paruh baya yang sedang mencari kesempatan terakhir untuk
-                membuktikan dirinya. Light lalu membentuk tim balapan yang terdiri dari empat
-                orang, yang masing-masing memiliki motivasinya sendiri untuk balapan.
+            <h1 class="text-3xl sm:text-4xl font-bold mb-4 capitalize" style="color: #9398e0;">
+                <?php echo $film['nama_film']; ?>
+            </h1>
+            <p class="text-lg sm:text-xl leading-relaxed mb-8" style="color: #e4e5f7;"><?php echo $film['deskripsi']; ?>
             </p>
             <hr class="border-gray-800 mb-8">
         </div>
@@ -31,179 +54,30 @@
         <div class="w-full max-w-screen-lg">
             <ul class="divide-y divide-gray-800">
 
-                <!-- Cinema 1 -->
-                <li class="py-4">
-                    <div class="flex justify-between items-center text-[#e4e5f7]">
-                        <a href="#" class="text-xl font-semibold capitalize">grand city mall</a>
-                        <span class="text-lg font-semibold">Rp.40,000</span>
-                    </div>
-                    <div class="flex py-2 space-x-4 capitalize">
-                        <a href="#" class="mt-2 text-sm text-[#e4e5f7] px-2 border">audi : 1</a>
-                        <a href="#" class="mt-2 text-sm text-[#e4e5f7] px-2 border">audi : 2</a>
-                        <a href="#" class="mt-2 text-sm text-[#e4e5f7] px-2 border">audi : 3</a>
-                        <a href="#" class="mt-2 text-sm text-[#e4e5f7] px-2 border">audi : 4</a>
-                        <a href="#" class="mt-2 text-sm text-[#e4e5f7] px-2 border">audi : 5</a>
-                    </div>
-                    <div class="flex py-2 space-x-2">
-                        <a href="movie.php" class="mt-2 text-sm text-[#e4e5f7] px-2 border ">01-05-2024</a>
-                        <a href="#" class="mt-2 text-sm text-[#e4e5f7] px-2 border">01-05-2024</a>
-                        <a href="#" class="mt-2 text-sm text-[#e4e5f7] px-2 border">01-05-2024</a>
-                        <a href="#" class="mt-2 text-sm text-[#e4e5f7] px-2 border">01-05-2024</a>
-                        <a href="#" class="mt-2 text-sm text-[#e4e5f7] px-2 border">01-05-2024</a>
-                    </div>
-                    <div class="flex py-2 space-x-4">
-                        <a href="#"
-                            class="py-2 px-4 border border-gray-400 bg-gray-100 text-gray-800 hover:bg-[#9398e0]">12:40</a>
-                        <a href="#"
-                            class="py-2 px-4 border border-gray-400 bg-gray-100 text-gray-800 hover:bg-[#9398e0]">14:50</a>
-                        <a href="#"
-                            class="py-2 px-4 border border-gray-400 bg-gray-100 text-gray-800 hover:bg-[#9398e0]">17:00</a>
-                        <a href="#"
-                            class="py-2 px-4 border border-gray-400 bg-gray-100 text-gray-800 hover:bg-[#9398e0]">19:10</a>
-                        <a href="#"
-                            class="py-2 px-4 border border-gray-400 bg-gray-100 text-gray-800 hover:bg-[#9398e0]">21:20</a>
-                    </div>
-                </li>
+                <!-- Loop through cinemas dynamically -->
+                <?php foreach ($jadwal as $cinema): ?>
+                    <li class="py-4">
+                        <div class="flex justify-between items-center text-[#e4e5f7]">
+                            <a href="#" class="text-xl font-semibold capitalize"><?php echo $cinema['nama_bioskop']; ?></a>
+                            <span class="text-lg font-semibold">Rp.<?php echo $cinema['harga']; ?></span>
+                        </div>
+                        <div class="flex py-2 space-x-4 capitalize">
+                            <a href="#" class="mt-2 text-sm text-[#e4e5f7] px-2 border">Studio :
+                                <?php echo $cinema['kode_studio']; ?></a>
+                        </div>
+                        <div class="flex py-2 space-x-2">
+                            <a href="#" class="mt-2 text-sm text-[#e4e5f7] px-2 border">Jam :
+                                <?php echo $cinema['tanggal']; ?></a>
+                        </div>
+                    </li>
+                <?php endforeach; ?>
 
-                <!-- Cinema 2 -->
-                <li class="py-4">
-                    <div class="flex justify-between items-center text-[#e4e5f7]">
-                        <a href="#" class="text-xl font-semibold capitalize">marvel city mall</a>
-                        <span class="text-lg font-semibold">Rp.40,000</span>
-                    </div>
-                    <div class="flex py-2 space-x-4 capitalize">
-                        <a href="#" class="mt-2 text-sm text-[#e4e5f7] px-2 border">audi : 1</a>
-                        <a href="#" class="mt-2 text-sm text-[#e4e5f7] px-2 border">audi : 2</a>
-                        <a href="#" class="mt-2 text-sm text-[#e4e5f7] px-2 border">audi : 3</a>
-                        <a href="#" class="mt-2 text-sm text-[#e4e5f7] px-2 border">audi : 4</a>
-                        <a href="#" class="mt-2 text-sm text-[#e4e5f7] px-2 border">audi : 5</a>
-                    </div>
-                    <div class="flex py-2 space-x-2">
-                        <a href="movie.php" class="mt-2 text-sm text-[#e4e5f7] px-2 border ">01-05-2024</a>
-                        <a href="#" class="mt-2 text-sm text-[#e4e5f7] px-2 border">01-05-2024</a>
-                        <a href="#" class="mt-2 text-sm text-[#e4e5f7] px-2 border">01-05-2024</a>
-                        <a href="#" class="mt-2 text-sm text-[#e4e5f7] px-2 border">01-05-2024</a>
-                        <a href="#" class="mt-2 text-sm text-[#e4e5f7] px-2 border">01-05-2024</a>
-                    </div>
-                    <div class="flex py-2 space-x-4">
-                        <a href="#"
-                            class="py-2 px-4 border border-gray-400 bg-gray-100 text-gray-800 hover:bg-[#9398e0]">12:40</a>
-                        <a href="#"
-                            class="py-2 px-4 border border-gray-400 bg-gray-100 text-gray-800 hover:bg-[#9398e0]">14:50</a>
-                        <a href="#"
-                            class="py-2 px-4 border border-gray-400 bg-gray-100 text-gray-800 hover:bg-[#9398e0]">17:00</a>
-                        <a href="#"
-                            class="py-2 px-4 border border-gray-400 bg-gray-100 text-gray-800 hover:bg-[#9398e0]">19:10</a>
-                        <a href="#"
-                            class="py-2 px-4 border border-gray-400 bg-gray-100 text-gray-800 hover:bg-[#9398e0]">21:20</a>
-                    </div>
-                </li>
 
-                <!-- Cinema 3 -->
-                <li class="py-4">
-                    <div class="flex justify-between items-center text-[#e4e5f7]">
-                        <a href="#" class="text-xl font-semibold capitalize">tunjungan plaza</a>
-                        <span class="text-lg font-semibold">Rp.40,000</span>
-                    </div>
-                    <div class="flex py-2 space-x-4 capitalize">
-                        <a href="#" class="mt-2 text-sm text-[#e4e5f7] px-2 border">audi : 1</a>
-                        <a href="#" class="mt-2 text-sm text-[#e4e5f7] px-2 border">audi : 2</a>
-                        <a href="#" class="mt-2 text-sm text-[#e4e5f7] px-2 border">audi : 3</a>
-                        <a href="#" class="mt-2 text-sm text-[#e4e5f7] px-2 border">audi : 4</a>
-                        <a href="#" class="mt-2 text-sm text-[#e4e5f7] px-2 border">audi : 5</a>
-                    </div>
-                    <div class="flex py-2 space-x-2">
-                        <a href="movie.php" class="mt-2 text-sm text-[#e4e5f7] px-2 border ">01-05-2024</a>
-                        <a href="#" class="mt-2 text-sm text-[#e4e5f7] px-2 border">01-05-2024</a>
-                        <a href="#" class="mt-2 text-sm text-[#e4e5f7] px-2 border">01-05-2024</a>
-                        <a href="#" class="mt-2 text-sm text-[#e4e5f7] px-2 border">01-05-2024</a>
-                        <a href="#" class="mt-2 text-sm text-[#e4e5f7] px-2 border">01-05-2024</a>
-                    </div>
-                    <div class="flex py-2 space-x-4">
-                        <a href="#"
-                            class="py-2 px-4 border border-gray-400 bg-gray-100 text-gray-800 hover:bg-[#9398e0]">12:40</a>
-                        <a href="#"
-                            class="py-2 px-4 border border-gray-400 bg-gray-100 text-gray-800 hover:bg-[#9398e0]">14:50</a>
-                        <a href="#"
-                            class="py-2 px-4 border border-gray-400 bg-gray-100 text-gray-800 hover:bg-[#9398e0]">17:00</a>
-                        <a href="#"
-                            class="py-2 px-4 border border-gray-400 bg-gray-100 text-gray-800 hover:bg-[#9398e0]">19:10</a>
-                        <a href="#"
-                            class="py-2 px-4 border border-gray-400 bg-gray-100 text-gray-800 hover:bg-[#9398e0]">21:20</a>
-                    </div>
-                </li>
-
-                <!-- Cinema 4 -->
-                <li class="py-4">
-                    <div class="flex justify-between items-center" style="color: #e4e5f7;">
-                        <a href="#" class="text-xl font-semibold capitalize">ciputra world</a>
-                        <span class="text-lg font-semibold">Rp.40,000</span>
-                    </div>
-                    <div class="flex py-2 space-x-4 capitalize">
-                        <a href="#" class="mt-2 text-sm text-[#e4e5f7] px-2 border">audi : 1</a>
-                        <a href="#" class="mt-2 text-sm text-[#e4e5f7] px-2 border">audi : 2</a>
-                        <a href="#" class="mt-2 text-sm text-[#e4e5f7] px-2 border">audi : 3</a>
-                        <a href="#" class="mt-2 text-sm text-[#e4e5f7] px-2 border">audi : 4</a>
-                        <a href="#" class="mt-2 text-sm text-[#e4e5f7] px-2 border">audi : 5</a>
-                    </div>
-                    <div class="flex py-2 space-x-2">
-                        <a href="movie.php" class="mt-2 text-sm text-[#e4e5f7] px-2 border ">01-05-2024</a>
-                        <a href="#" class="mt-2 text-sm text-[#e4e5f7] px-2 border">01-05-2024</a>
-                        <a href="#" class="mt-2 text-sm text-[#e4e5f7] px-2 border">01-05-2024</a>
-                        <a href="#" class="mt-2 text-sm text-[#e4e5f7] px-2 border">01-05-2024</a>
-                        <a href="#" class="mt-2 text-sm text-[#e4e5f7] px-2 border">01-05-2024</a>
-                    </div>
-                    <div class="flex py-2 space-x-4">
-                        <a href="#"
-                            class="py-2 px-4 border border-gray-400 bg-gray-100 text-gray-800 hover:bg-[#9398e0]">12:40</a>
-                        <a href="#"
-                            class="py-2 px-4 border border-gray-400 bg-gray-100 text-gray-800 hover:bg-[#9398e0]">14:50</a>
-                        <a href="#"
-                            class="py-2 px-4 border border-gray-400 bg-gray-100 text-gray-800 hover:bg-[#9398e0]">17:00</a>
-                        <a href="#"
-                            class="py-2 px-4 border border-gray-400 bg-gray-100 text-gray-800 hover:bg-[#9398e0]">19:10</a>
-                        <a href="#"
-                            class="py-2 px-4 border border-gray-400 bg-gray-100 text-gray-800 hover:bg-[#9398e0]">21:20</a>
-                    </div>
-                </li>
-
-                <!-- Cinema 5 -->
-                <li class="py-4">
-                    <div class="flex justify-between items-center" style="color: #e4e5f7;">
-                        <a href="#" class="text-xl font-semibold capitalize">delta</a>
-                        <span class="text-lg font-semibold">Rp.40,000</span>
-                    </div>
-                    <div class="flex py-2 space-x-4 capitalize">
-                        <a href="#" class="mt-2 text-sm text-[#e4e5f7] px-2 border">audi : 1</a>
-                        <a href="#" class="mt-2 text-sm text-[#e4e5f7] px-2 border">audi : 2</a>
-                        <a href="#" class="mt-2 text-sm text-[#e4e5f7] px-2 border">audi : 3</a>
-                        <a href="#" class="mt-2 text-sm text-[#e4e5f7] px-2 border">audi : 4</a>
-                        <a href="#" class="mt-2 text-sm text-[#e4e5f7] px-2 border">audi : 5</a>
-                    </div>
-                    <div class="flex py-2 space-x-2">
-                        <a href="movie.php" class="mt-2 text-sm text-[#e4e5f7] px-2 border ">01-05-2024</a>
-                        <a href="#" class="mt-2 text-sm text-[#e4e5f7] px-2 border">01-05-2024</a>
-                        <a href="#" class="mt-2 text-sm text-[#e4e5f7] px-2 border">01-05-2024</a>
-                        <a href="#" class="mt-2 text-sm text-[#e4e5f7] px-2 border">01-05-2024</a>
-                        <a href="#" class="mt-2 text-sm text-[#e4e5f7] px-2 border">01-05-2024</a>
-                    </div>
-                    <div class="flex py-2 space-x-4">
-                        <a href="#"
-                            class="py-2 px-4 border border-gray-400 bg-gray-100 text-gray-800 hover:bg-[#9398e0]">12:40</a>
-                        <a href="#"
-                            class="py-2 px-4 border border-gray-400 bg-gray-100 text-gray-800 hover:bg-[#9398e0]">14:50</a>
-                        <a href="#"
-                            class="py-2 px-4 border border-gray-400 bg-gray-100 text-gray-800 hover:bg-[#9398e0]">17:00</a>
-                        <a href="#"
-                            class="py-2 px-4 border border-gray-400 bg-gray-100 text-gray-800 hover:bg-[#9398e0]">19:10</a>
-                        <a href="#"
-                            class="py-2 px-4 border border-gray-400 bg-gray-100 text-gray-800 hover:bg-[#9398e0]">21:20</a>
-                    </div>
-                </li>
 
             </ul>
         </div>
     </div>
+
 </body>
 
 </html>
