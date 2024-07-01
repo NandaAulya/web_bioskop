@@ -33,15 +33,14 @@
                     <img src="assets/images/poster/<?php echo $row['poster']; ?>" alt="<?php echo $row['nama_film']; ?>"
                         loading="lazy" class="object-cover w-full h-full">
                 </div>
-                <div class="px-4 absolute inset-0 flex flex-col justify-center items-center bg-gradient-to-t from-black via-black to-transparent opacity-0 transition duration-500 ease-in-out hover:opacity-100 z-10">
-                    <p class="text-white font-bold text-xl mb-2 line-clamp-2 text-center"><?php echo $row['nama_film']; ?>
-                    </p>
+                <div class="px-4 absolute inset-0 flex flex-col bg-gradient-to-t from-black via-black to-transparent opacity-0 transition duration-500 ease-in-out hover:opacity-100 z-10 font-poppins">
+                    <p class="text-white font-bold text-xl mb-2 mt-10 line-clamp-2 text-center"><?php echo $row['nama_film']; ?></p>
                     <p class="text-sm text-gray-300 mb-2"><?php echo $row['nama_genre']; ?></p>
                     <div class="overflow-hidden max-h-[100px]">
                         <p class="text-sm flex text-gray-300 text-ellipsis mb-4"><?php echo $row['deskripsi']; ?></p>
                     </div>
                     <a href="movie.php?slug=<?php echo $row['slug']; ?>"
-                        class="mt-20 inline-block bg-white text-gray-800 text-center justify-center items-center w-full w-[100px] px-4 py-2 rounded-lg text-sm font-medium hover:bg-[#8f94da] hover:text-white transition z-20">
+                        class="mt-20 ml-12 inline-block bg-white text-gray-800 text-center justify-center items-center w-full w-[100px] px-4 py-2 rounded-lg text-sm font-medium hover:bg-[#8f94da] hover:text-white transition z-20">
                         Book Now
                     </a>    
                 </div>

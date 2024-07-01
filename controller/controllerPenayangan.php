@@ -14,7 +14,8 @@ function getPenayangan($slug){
                         FROM penayangan JOIN studio ON penayangan.id_studio = studio.id_studio 
                         JOIN bioskop ON studio.id_bioskop = bioskop.id_bioskop 
                         JOIN film ON penayangan.id_film = film.id_film 
-                        WHERE film.slug = '$slug' order by bioskop.nama_bioskop;");
+                        WHERE film.slug = '$slug' 
+                        order by bioskop.nama_bioskop, studio.kode_studio, penayangan.jam;");
 }
 // function getFilmByKota($kota) {
 //     global $db;
