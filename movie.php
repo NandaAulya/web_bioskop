@@ -44,8 +44,8 @@
         <img class="w-full max-w-screen-lg h-[380px] mb-8 object-cover rounded-md"
             src="assets/images/banner/<?php echo $film['banner']; ?>" alt="<?php echo $film['nama_film']; ?>">
 
-        <div class="w-full max-w-screen-lg">
-            <h1 class="text-5xl font-bold font-poppins mb-4 capitalize" style="color: #9398e0;">
+        <div class="w-full max-w-screen-lg font-poppins">
+            <h1 class="text-5xl font-bold mb-4 capitalize" style="color: #9398e0;">
                 <?php echo htmlspecialchars($film['nama_film']); ?>
             </h1>
             <p class="text-lg sm:text-xl leading-relaxed mb-8 font-poppins" style="color: #e4e5f7;">
@@ -67,22 +67,22 @@
                 ?>
                     <li class="py-4">
                         <div class="flex justify-between items-center text-[#e4e5f7]">
-                            <a href="#" class="text-3xl font-semibold capitalize"><?php echo htmlspecialchars($cinema['nama_bioskop']); ?></a>
-                            <span class="text-lg font-semibold pr-10">Rp.<?php echo htmlspecialchars($cinema['harga']); ?></span>
+                            <a href="#" class="text-3xl font-semibold capitalize font-poppins"><?php echo($cinema['nama_bioskop']); ?></a>
+                            <span class="text-lg font-semibold pr-10 font-poppins">Rp.<?php echo ($cinema['harga']); ?></span>
                         </div>
                         
                         <div class="flex py-2 space-x-4 capitalize">
-                            <a href="#" class="mt-2 text-lg text-[#e4e5f7] px-2 border">Audi 
-                                <?php echo htmlspecialchars($cinema['kode_studio']); ?></a>
+                            <a href="#" class="mt-2 text-lg text-[#e4e5f7] px-2 border font-poppins">Audi 
+                                <?php echo ($cinema['kode_studio']); ?></a>
                         </div>
                         <div class="flex py-2 space-x-2">
                             <a href="#" class="mt-2 text-lg text-[#e4e5f7] px-2 border">
-                                <?php echo htmlspecialchars($cinema['tanggal']); ?></a>
+                                <?php echo ($cinema['tanggal']); ?></a>
                         </div>
                         <div class="flex py-2 space-x-2">
                 <?php } ?>
-                            <a href="seat.php" class="mt-2 text-lg text-[#e4e5f7] px-2 border">
-                                <?php echo htmlspecialchars($cinema['jam']); ?></a>
+                            <a href="seat.php" class="py-2 px-4 border border-gray-400 bg-gray-100 text-gray-800 hover:bg-[#9398e0] font-poppins">
+                                <?php echo ($cinema['jam']); ?></a>
                 <?php endforeach; ?>
                         </div>
                     </li>
