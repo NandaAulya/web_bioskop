@@ -30,29 +30,35 @@
 
 <body class="flex justify-center items-center min-h-screen bg-gray-100">
     <div class="w-[500px] h-[550px] bg-white text-pink-500 rounded-2xl p-10 shadow-lg">
-        <?php if (isset($error_message) && !empty($error_message)) : ?>
+        <?php if (isset($error_message) && !empty($error_message)): ?>
             <div class="text-red-500 mb-4 text-center"><?php echo $error_message; ?></div>
         <?php endif; ?>
         <form id="registerForm" method="POST">
             <h1 class="text-6xl font-bold font-poppins text-[#9398e0] text-center mb-10">Register</h1>
             <div class="relative mb-6">
-                <input id="email" name="email" type="email" placeholder="Email" required class="w-full h-12 bg-transparent border-2 border-black/20 rounded-full text-blue-500 px-4 focus:outline-none placeholder-blue-300">
+                <input id="email" name="email" type="email" placeholder="Email" required
+                    class="w-full h-12 bg-transparent border-2 border-black/20 rounded-full text-blue-500 px-4 focus:outline-none placeholder-blue-300">
                 <i class='bx bxs-user absolute right-4 top-4 text-blue-300'></i>
             </div>
             <div class="relative mb-6">
-                <input id="username" name="username" type="text" placeholder="Username" required class="w-full h-12 bg-transparent border-2 border-black/20 rounded-full text-blue-500 px-4 focus:outline-none placeholder-blue-300">
+                <input id="username" name="username" type="text" placeholder="Username" required
+                    class="w-full h-12 bg-transparent border-2 border-black/20 rounded-full text-blue-500 px-4 focus:outline-none placeholder-blue-300">
                 <i class='bx bxs-user absolute right-4 top-4 text-blue-300'></i>
             </div>
             <div class="relative mb-6">
-                <input id="full_name" name="full_name" type="text" placeholder="Full Name" required class="w-full h-12 bg-transparent border-2 border-black/20 rounded-full text-blue-500 px-4 focus:outline-none placeholder-blue-300">
+                <input id="full_name" name="full_name" type="text" placeholder="Full Name" required
+                    class="w-full h-12 bg-transparent border-2 border-black/20 rounded-full text-blue-500 px-4 focus:outline-none placeholder-blue-300">
                 <i class='bx bxs-user absolute right-4 top-4 text-blue-300'></i>
             </div>
             <div class="relative mb-6">
-                <input id="password" name="password" type="password" placeholder="Password" required class="w-full h-12 bg-transparent border-2 border-black/20 rounded-full text-blue-500 px-4 focus:outline-none placeholder-blue-300">
+                <input id="password" name="password" type="password" placeholder="Password" required
+                    class="w-full h-12 bg-transparent border-2 border-black/20 rounded-full text-blue-500 px-4 focus:outline-none placeholder-blue-300">
                 <i class='bx bxs-lock-alt absolute right-4 top-4 text-blue-300'></i>
             </div>
             <div class="relative mb-6">
-                <input id="confirm-password" name="confirm_password" type="password" placeholder="Confirm Password" required class="w-full h-12 bg-transparent border-2 border-black/20 rounded-full text-blue-500 px-4 focus:outline-none placeholder-blue-300">
+                <input id="confirm-password" name="confirm_password" type="password" placeholder="Confirm Password"
+                    required
+                    class="w-full h-12 bg-transparent border-2 border-black/20 rounded-full text-blue-500 px-4 focus:outline-none placeholder-blue-300">
                 <i class='bx bxs-lock-alt absolute right-4 top-4 text-blue-300'></i>
             </div>
             <div class="flex items-center mb-6">
@@ -60,7 +66,8 @@
                 <label for="show-password" class="text-blue-500">Show Password</label>
             </div>
             <div class="flex justify-center">
-                <button type="submit" class="w-[170px] h-12 text-white rounded-full shadow-md font-semibold text-xl" style="background-color: #9398e0">Register</button>
+                <button type="submit" class="w-[170px] h-12 text-white rounded-full shadow-md font-semibold text-xl"
+                    style="background-color: #9398e0">Register</button>
             </div>
             <div class="text-center mt-6">
                 <p>Already have an account? <a href="login.php" class="text-blue-500 font-semibold">Login</a></p>
