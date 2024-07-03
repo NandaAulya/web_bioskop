@@ -66,7 +66,7 @@
                 <label for="show-password" class="text-xl text-[#9398e0]">Show Password</label>
             </div>
             <div class="flex justify-center">
-                <button type="submit" class="w-[200px] h-14 text-white rounded-full shadow-md font-semibold text-xl" style="background-color: #9398e0">Login</button>
+                <button type="submit" class="w-[170px] h-12 text-white rounded-full shadow-md font-semibold text-xl" style="background-color: #9398e0">Login</button>
             </div>
             <div class="text-center mt-8">
                 <p class="text-lg text-[#9398e0]">Don't have an account? <a href="register.php" class="text-[#c63a8d] font-semibold">Register</a></p>
