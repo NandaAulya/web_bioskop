@@ -29,7 +29,7 @@
     ?>
     <!-- Card -->
 
-        <div class="grid grid-cols-4 gap-8 place-content-start p-10 mt-20">
+        <div class="grid grid-cols-4 gap-4 place-content-start p-10">
             <?php foreach ($theaters as $theater): ?>
                 <div class="shadow-2xl overflow-hidden rounded-md shadow transition hover:shadow-lg mb-4 ml-6"
                     style="width: 300px;">

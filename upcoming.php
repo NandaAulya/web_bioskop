@@ -15,7 +15,7 @@
 <body style="background-color: #060614">
     <?php include "includes/navbar.php" ?>
     <!-- Card -->
-    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-10 place-content-start p-20 capitalize mx-">
+    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-10 place-content-start p-20 capitalize">
         <?php foreach ($film as $row) : ?>
             <div class="relative w-[200px] flex flex-col bg-white rounded-lg shadow-md aspect-w-3 aspect-h-4 overflow-hidden">
                 <div class="h-full overflow-hidden">

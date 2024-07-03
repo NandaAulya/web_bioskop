@@ -26,6 +26,6 @@ function getFilmBySlug($slug) {
 
 // function getFilmByKota($kota) {
 //     global $db;
-//     return $db->query("SELECT * FROM film JOIN bioskop ON film.id = genre.id_genre WHERE NOT status_tayang = 1  "", [$kota]);
+//     return $db->query("SELECT * FROM film JOIN bioskop ON film.id = genre.id_genre WHERE NOT status_tayang = 1 ", [$kota]);
 // }
 ?>

@@ -10,7 +10,7 @@ function getTheaters() {
 
 function gettheaterByName($name) {
     global $db;
-    return $db->query("SELECT * FROM bioskop WHERE nama_Bioskop = ?", [$name]);
+    return $db->query("SELECT * FROM bioskop WHERE nama_bioskop = ?", [$name]);
 }
 
 function getTheatersByKota($kota) {
