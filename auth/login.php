@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <?php
-    $title = "Register";
+    $title = "Login";
     include "../config/config.php";
     include "../controller/controllerUser.php";
 
