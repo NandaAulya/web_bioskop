@@ -4,10 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <?php 
-    $title = 'movies';
-    include 'config/config.php';
-    ?>
+    <title>Edit Profile</title>
+    <?php include 'config/config.php';?>
 </head>
 
 <body class="bg-white">
@@ -15,7 +13,7 @@
         <div class="flex flex-col items-center mt-5">
             <h1 class="text-center mb-2">My Profile</h1>
             <div class="relative">
-                <img src="assets/images/Akun.jpeg" id="profile-image" alt=""
+                <img src="Akun.jpeg" id="profile-image" alt=""
                     class="w-36 h-36 rounded-full border-0 border-white shadow-lg object-cover">
                 <button class="absolute bottom-0 right-0 bg-white border-0 border-gray-100 rounded-full p-4"
                     onclick="document.getElementById('file-input').click()">
@@ -23,7 +21,7 @@
                 </button>
                 <input type="file" id="file-input" accept="image/*" class="hidden" onchange="uploadProfilePicture()">
             </div>
-            <div class="profile name">Masukkan Nama User</div>
+            <div id="profile-name" class="mt-4 text-center">masukin nama user nya di sini</div>
         </div>
         <form class="mt-6 w-80 mx-auto space-y-4">
             <div>
@@ -93,10 +91,6 @@
                 document.getElementById('email-view').value = savedData.email;
                 document.getElementById('jk-view').value = savedData.jk;
                 document.getElementById('pass-view').value = savedData.pass;
-                document.getElementById('username').value = savedData.username;
-                document.getElementById('email').value = savedData.email;
-                document.getElementById('jk').value = savedData.jk;
-                document.getElementById('pass').value = savedData.pass;
             }
         };
 

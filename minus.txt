@@ -2,7 +2,7 @@ minus webis :
 
 - drop kota di playing (blm befungsi)
 - login (ketika berhasil login dropdown yang bars tulisanya tetap login tidak berubah ke logout)
-- your profile ?
+- profile
 - theaters detail
 - seat
 - logo (done)
@@ -11,3 +11,4 @@ minus webis :
 - drop down bars
 - audi (belum bisa lebih dari satu audi)
 - theater (ui)
+- login & register (ui) -- login done
