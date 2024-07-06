@@ -6,7 +6,7 @@ $db = Database::getInstance();
 function registerUser($name, $email, $fullname, $password, $password_confirm)
 {
     global $db;
-    $emailCheck = $db->query("SELECT * FROM user WHERE email = ?", [$email]);
+    $emailCheck = $db->query("SELECT * FROM user WHERE email = ?" , [$email]);
 
     if ($emailCheck && $emailCheck->num_rows > 0) {
         return "email telah terdaftar";
@@ -14,14 +14,11 @@ function registerUser($name, $email, $fullname, $password, $password_confirm)
 
     if ($password === $password_confirm) {
         $hashed_password = password_hash($password, PASSWORD_DEFAULT);
-        $role = 'client';
-        $query = "INSERT INTO user (username, email, full_name, password, role) VALUES (?, ?, ?, ?, ?)";
+        $query = "INSERT INTO user (username, email, full_name, password) VALUES (?, ?, ?, ?)";
 
-        $result = $db->query($query, [$name, $email, $fullname, $hashed_password, $role]);
+        $result = $db->query($query, [$name, $email, $fullname, $hashed_password]);
 
-        if ($result) {
-            return true;
-        } else {
+        if (!$result) {
             return "Error: Unable to register user."; // Tangani kesalahan eksekusi
         }
     } else {

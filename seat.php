@@ -8,7 +8,7 @@
     <?php 
         include "config/config.php";
     ?>
-    <style>
+    <style>x
         .seat {
             transition: background-color 0.3s ease;
         }

@@ -18,7 +18,7 @@
 
         $result = registerUser($name, $email, $full_name, $password, $password_confirm);
 
-        if ($result === true) {
+        if ($result == true) {
             header("Location: login.php");
             exit();
         } else {

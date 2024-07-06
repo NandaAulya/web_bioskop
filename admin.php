@@ -1,3 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard Admin</title>
+    <?php
+    include "config/config.php";
+    include "controller/controllerUser.php";
+    if (!isset($_SESSION['role']) || $_SESSION['role'] != 'admin') {
+        header("Location: auth/login.php");
+        exit();
+    }
+    ?>
+</head>
+<body class="bg-gray-900 text-white">
 <nav class="z-[999] w-full border-b-2 bg-[#060614]">
     <div class="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
         <div class="relative flex h-20 items-center justify-between">
@@ -69,8 +85,19 @@
         </div>
     </div>
 </nav>
+    <h1>Selamat Datang, <?php echo $_SESSION['full_name']; ?></h1>
+    
+    <nav>
+        <ul>
+            <li><a href="includes/manageBioskop.php">Kelola Bioskop</a></li>
+            <li><a href="manageFilms.php">Kelola Film</a></li>
+            <li><a href="manageShowings.php">Kelola Penayangan</a></li>
+            <li><a href="manageUsers.php">Kelola Pengguna</a></li>
+            <li><a href="logout.php">Logout</a></li>
+        </ul>
+    </nav>
 
-<script>
+    <script>
     function setActive(path) {
         const isActive = window.location.pathname.includes(path);
         return isActive ? 'bg-gray-700 text-[#ebebf8] hover:bg-[#c65482] hover:text-white rounded-md px-3 py-2 text-sm font-medium sm:text-base' : 'text-gray-100 hover:text-white rounded-md px-3 py-2 text-sm font-medium sm:text-base';
@@ -83,3 +110,5 @@
     });
 
 </script>
+</body>
+</html>

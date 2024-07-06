@@ -35,7 +35,7 @@
                 style="width: 300px;">
                 <div class="bg-white rounded-md">
                     <a href="tinfo.php?slug=<?php echo $theater['slug_bioskop']; ?>">
-                        <img src=assets/images/cinema/<?php echo $theater['poster']; ?>
+                        <img src=<?php echo $theater['poster']; ?>
                             class="h-[150px] w-[300px] object-cover">
                         <h3
                             class="mt-4 ml-4 capitalize text-2xl font-bold font-poppins transition-colors duration-300 text-[#9398e0] hover:text-[#1d1d3f]">

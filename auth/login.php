@@ -31,8 +31,8 @@
                 $_SESSION['username'] = $result['username'];
                 $_SESSION['full_name'] = $result['full_name'];
                 $_SESSION['role'] = $result['role'];
-                if ($result['role'] == 'admin') {
-                    header("Location: dasbordAdmin.php");
+                if ($_SESSION['role'] == 'admin') {
+                    header("Location: ../admin.php");
                 } else {
                     header("Location: ../index.php");
                 }
