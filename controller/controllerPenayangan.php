@@ -5,7 +5,7 @@ $db = Database::getInstance();
 
 function getBioskop(){
     global $db;
-    return $db->query("SELECT * FROM bioskop JOIN  ON film.id_genre = genre.id_genre WHERE NOT status_tayang = 1  ");
+    return $db->query("SELECT * FROM bioskop JOIN ON film.id_genre = genre.id_genre WHERE NOT status_tayang = 1  ");
 }
 
 function getAllPenayangan() {

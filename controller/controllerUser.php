@@ -50,4 +50,30 @@ function login($email, $password){
     }
 }
 
+function getUserCount() {
+    global $db;
+    $result = $db->query("SELECT COUNT(*) AS count FROM user");
+    return $result->fetch_assoc()['count'];
+}
+
+function getAllUser(){
+    global $db;
+    return $db->query("SELECT * FROM user");
+}
+
+function searchUser($query) {
+    global $db;
+    return $db->query("SELECT * FROM user WHERE username LIKE ?", ["%$query%"]);
+}
+
+function updateUserRole($id, $role) {
+    global $db;
+    return $db->query("UPDATE user SET role = ? WHERE id_user = ?", [$role, $id]);
+}
+
+function deleteUser($id) {
+    global $db;
+    return $db->query("DELETE FROM user WHERE id_user = ?", [$id]);
+}
+
 ?>

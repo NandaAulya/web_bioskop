@@ -21,10 +21,10 @@
     <?php
     if (isset($_GET['kota'])) {
         $kota = $_GET['kota'];
-        $theaters = getTheatersByKota($kota);
+        $theaters = viewAllTheaterByKota($kota);
     } else {
         // Jika tidak ada parameter kota, ambil semua data teater
-        $theaters = getTheaters();
+        $theaters = viewAllTheater();
     }
     ?>
     <!-- Card -->

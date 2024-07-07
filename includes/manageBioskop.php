@@ -54,7 +54,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 }
 
 // Fetch theaters for listing
-$theaters = getTheaters();
+$theaters = viewAllTheater();
 ?>
 
 <!DOCTYPE html>
@@ -114,7 +114,7 @@ $theaters = getTheaters();
         <h1 class="text-3xl font-bold mt-8 mb-4">Daftar Bioskop</h1>
         <ul class="space-y-4">
             <?php
-            $theaters = getTheaters();
+            $theaters = viewAllTheater();
             while ($row = $theaters->fetch_assoc()) {
                 echo "<li class='bg-gray-800 p-4 rounded-md flex justify-between items-center'>
                     <div>
