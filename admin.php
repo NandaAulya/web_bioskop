@@ -25,9 +25,8 @@
             <nav class="mt-6 space-y-1">
                 <a href="?page=includes/manageFilm" class="block py-2.5 px-4 rounded transition duration-200 hover:bg-gray-700">Kelola Film</a>
                 <a href="?page=includes/manageBioskop" class="block py-2.5 px-4 rounded transition duration-200 hover:bg-gray-700">Kelola Bioskop</a>
-                <a href="?page=includes/manageStudio" class="block py-2.5 px-4 rounded transition duration-200 hover:bg-gray-700">Kelola Penayangan</a>
                 <a href="?page=includes/manageUser" class="block py-2.5 px-4 rounded transition duration-200 hover:bg-gray-700">Kelola Pengguna</a>
-                <a href="?page=includes/managePenayangan" class="block py-2.5 px-4 rounded transition duration-200 hover:bg-gray-700">Kelola Pengguna</a>
+                <a href="?page=includes/managePenayangan" class="block py-2.5 px-4 rounded transition duration-200 hover:bg-gray-700">Kelola Penayangan</a>
             </nav>
         </div>
 

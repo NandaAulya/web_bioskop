@@ -16,6 +16,13 @@ function viewAllStudio($id_bioskop) {
     return $db->query("SELECT * FROM studio WHERE id_bioskop = ?", [$id_bioskop]);
 }
 
+function viewAllStudioS() {
+    global $db;
+    return $db->query("SELECT * FROM studio JOIN bioskop ON bioskop.id_bioskop = studio.id_bioskop");
+}
+
+
+
 function searchStudio($query) {
     global $db;
     return $db->query("SELECT * FROM studio WHERE kode_studio LIKE ?", ["%$query%"]);
