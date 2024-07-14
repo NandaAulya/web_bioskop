@@ -7,9 +7,7 @@
     <?php $title = "Theater" ?>
     <?php include "config/config.php" ?>
     <?php
-    //kasih param buat nanti soalnya location harus di select
     include "controller/controllerBioskop.php";
-
     ?>
 </head>
 
@@ -19,8 +17,8 @@
     <?php include "includes/dropKota.php" ?>
 
     <?php
-    if (isset($_GET['kota'])) {
-        $kota = $_GET['kota'];
+    if (isset($_POST['kota'])) {
+        $kota = $_POST['kota'];
         $theaters = viewAllTheaterByKota($kota);
     } else {
         // Jika tidak ada parameter kota, ambil semua data teater

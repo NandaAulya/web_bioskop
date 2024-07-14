@@ -17,6 +17,18 @@ function getAllPenayangan() {
                        JOIN bioskop ON studio.id_bioskop = bioskop.id_bioskop");
 }
 
+function getPenayanganFilm($slug) {
+    global $db;
+    $film = getFilmBySlug($slug)->fetch_assoc();
+
+    return $db->query("SELECT penayangan.*, film.nama_film, studio.kode_studio, bioskop.nama_bioskop 
+                       FROM penayangan 
+                       JOIN film ON penayangan.id_film = film.id_film 
+                       JOIN studio ON penayangan.id_studio = studio.id_studio 
+                       JOIN bioskop ON studio.id_bioskop = bioskop.id_bioskop
+                       WHERE penayangan.id_film = ?", [$film['id_film']]);
+}
+
 function getPenayanganByFilm($id_film) {
     global $db;
     return $db->query("SELECT penayangan.*, film.nama_film, studio.kode_studio, bioskop.nama_bioskop 

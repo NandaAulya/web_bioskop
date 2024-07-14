@@ -5,8 +5,7 @@ $db = Database::getInstance();
 
 
 function handlePosterUpload($poster) {
-    $target_file = "../assets/images/cinema/" . basename($poster["name"]);
-    $posterlink = "assets/images/cinema/" . basename($poster["name"]);
+    $target_file = "assets/images/cinema/" . basename($poster["name"]);
     $imageFileType = strtolower(pathinfo($target_file, PATHINFO_EXTENSION));
 
     $check = getimagesize($poster["tmp_name"]);
@@ -27,7 +26,7 @@ function handlePosterUpload($poster) {
         return "Upload gagal";
     }
 
-    return $posterlink;
+    return $target_file;
 }
 
 // =======CREATE=======

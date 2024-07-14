@@ -35,7 +35,7 @@
             <div
                 class="relative w-[200px] flex flex-col bg-white rounded-lg shadow-md aspect-w-3 aspect-h-4 overflow-hidden">
                 <div class="h-full overflow-hidden">
-                    <img src="assets/images/poster/<?php echo $row['poster']; ?>" alt="<?php echo $row['nama_film']; ?>"
+                    <img src="<?php echo $row['poster']; ?>" alt="<?php echo $row['nama_film']; ?>"
                         loading="lazy" class="object-cover w-full h-full">
                 </div>
                 <div

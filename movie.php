@@ -25,8 +25,9 @@
             echo "<div style='color: #e4e5f7; text-align: center; padding: 20px;'>Film not found.</div>";
             exit;
         }
+        
 
-        $jadwal = getPenayanganByFilm($slug);
+        $jadwal = getPenayanganByFilm($film['id_film']);
         if (!$jadwal) {
             echo "<div style='color: #e4e5f7; text-align: center; padding: 20px;'>Screening schedule not found.</div>";
             exit;
@@ -42,7 +43,7 @@
 
     <div class="flex flex-col items-center pt-20 px-20">
         <img class="w-full max-w-screen-lg h-[380px] mb-8 object-cover rounded-md"
-            src="assets/images/banner/<?php echo $film['banner']; ?>" alt="<?php echo $film['nama_film']; ?>">
+            src="<?php echo $film['banner']; ?>" alt="<?php echo $film['nama_film']; ?>">
 
         <div class="w-full max-w-screen-lg font-poppins">
             <h1 class="text-5xl font-bold mb-4 capitalize" style="color: #9398e0;">

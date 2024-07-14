@@ -5,8 +5,7 @@ $db = Database::getInstance();
 
 function handleImageUpload($image, $selector) {
     $folder = $selector == 1 ? "poster" : "banner";
-    $target_file = "../assets/images/$folder/" . basename($image["name"]);
-    $imagelink = "assets/images/$folder/" . basename($image["name"]);
+    $target_file = "assets/images/$folder/" . basename($image["name"]);
 
     $imageFileType = strtolower(pathinfo($target_file, PATHINFO_EXTENSION));
 
@@ -28,19 +27,19 @@ function handleImageUpload($image, $selector) {
         return "Upload gagal";
     }
 
-    return $imagelink;
+    return $target_file;
 }
 
 // =======CREATE=======
 function createFilm($nama_film, $deskripsi, $tahun_terbit, $sutradara, $poster, $banner, $id_genre, $aktor,  $status_tayang) {
     global $db;
 
-    $posterlink = handlePosterUpload($poster, 1);
+    $posterlink = handleImageUpload($poster, 1);
     if (strpos($posterlink, "Sorry") !== false) {
         return $posterlink;
     }
     
-    $bannerlink = handlePosterUpload($banner, 2);
+    $bannerlink = handleImageUpload($banner, 2);
     if (strpos($bannerlink, "Sorry") !== false) {
         return $bannerlink;
     }
@@ -98,7 +97,7 @@ function updateFilm($id, $nama_film, $deskripsi, $tahun_terbit, $sutradara, $pos
         if (strpos($posterlink, "Sorry") !== false) return $posterlink;
 
         $film = $db->query("SELECT * FROM film WHERE id_film = ?", [$id])->fetch_assoc();
-        if ($film && file_exists("../" . $film['poster'])) unlink("../" . $film['poster']);
+        if ($film && file_exists($film['poster'])) unlink($film['poster']);
 
         $query .= ", poster = ?";
         $params[] = $posterlink;
@@ -109,13 +108,13 @@ function updateFilm($id, $nama_film, $deskripsi, $tahun_terbit, $sutradara, $pos
         if (strpos($bannerlink, "Sorry") !== false) return $bannerlink;
 
         $film = $db->query("SELECT * FROM film WHERE id_film = ?", [$id])->fetch_assoc();
-        if ($film && file_exists("../" . $film['banner'])) unlink("../" . $film['banner']);
+        if ($film && file_exists($film['banner'])) unlink($film['banner']);
 
         $query .= ", banner = ?";
         $params[] = $bannerlink;
     }
 
-    $query .= " WHERE id = ?";
+    $query .= " WHERE id_film = ?";
     $params[] = $id;
 
     $result = $db->query($query, $params);
@@ -130,12 +129,12 @@ function deleteFilm($id) {
         return "Film tidak ditemukan.";
     }
 
-    if (file_exists("../" . $film['poster'])) {
-        unlink("../" . $film['poster']);
+    if (file_exists($film['poster'])) {
+        unlink($film['poster']);
     }
     
-    if (file_exists("../" . $film['banner'])) {
-        unlink("../" . $film['banner']);
+    if (file_exists($film['banner'])) {
+        unlink($film['banner']);
     }
     $result = $db->query("DELETE FROM film WHERE id_film = ?", [$id]);
     return $result ? true : "Error: Gagal menghapus theater.";
