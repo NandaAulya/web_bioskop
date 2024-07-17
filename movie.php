@@ -28,16 +28,6 @@
         
 
         $jadwal = getPenayanganByFilm($film['id_film']);
-        if (!$jadwal) {
-            echo "<div style='color: #e4e5f7; text-align: center; padding: 20px;'>Screening schedule not found.</div>";
-            exit;
-        } else {
-            $jadwal = mysqli_fetch_all($jadwal, MYSQLI_ASSOC);
-            if (empty($jadwal)) {
-                echo "<div style='color: #e4e5f7; text-align: center; padding: 20px;'>No screening schedule available.</div>";
-                exit;
-            }
-        }
         ?>
     </header>
 
@@ -54,6 +44,18 @@
             </p>
             <hr class="border-gray-800 mb-8">
         </div>
+        <?php
+        if (!$jadwal) {
+            echo "<div style='color: #e4e5f7; text-align: center; padding: 20px;'>Screening schedule not found.</div>";
+            exit;
+        } else {
+            $jadwal = mysqli_fetch_all($jadwal, MYSQLI_ASSOC);
+            if (empty($jadwal)) {
+                echo "<div style='color: #e4e5f7; text-align: center; padding: 20px;'>No screening schedule available.</div>";
+                exit;
+            }
+        }
+        ?>
 
         <div class="w-full max-w-screen-lg">
             <ul class="divide-y divide-gray-800">
@@ -75,7 +77,7 @@
                                 </div>
                                 <ul class="divide-y divide-gray-800">
                                     <?php }
-                    if ($current_studio !== $cinema['kode_studio']) {
+                    if ($current_studio !== $cinema['kode_studio']) { 
                         if ($current_studio !== '') {
                             echo '</ul><div class="clear"></div></li>';
                         }
@@ -89,7 +91,7 @@
                             <ul class="showtime-lists flex flex-wrap py-2 space-x-2">
                     <?php } ?>
                     <li class="py-1">
-                        <a href="seat.php?book=<?php echo $cinema['id_penayangan']; ?>" class="py-2 px-4 border border-gray-400 bg-gray-100 text-gray-800 hover:bg-[#9398e0] font-poppins">
+                        <a href="booking.php?book=<?php echo $cinema['id_penayangan']; ?>" class="py-2 px-4 border border-gray-400 bg-gray-100 text-gray-800 hover:bg-[#9398e0] font-poppins">
                             <?php echo htmlspecialchars($cinema['jam']); ?>
                         </a>
                     </li>

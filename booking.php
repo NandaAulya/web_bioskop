@@ -119,7 +119,7 @@
                 let formData = new FormData();
                 formData.append('action', 'bookSeats');
                 formData.append('seatIds', JSON.stringify(seatIds));
-                fetch('ticket_booking.php', {
+                fetch('booking.php', {
                     method: 'POST',
                     body: formData
                 })

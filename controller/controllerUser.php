@@ -76,4 +76,6 @@ function deleteUser($id) {
     return $db->query("DELETE FROM user WHERE id_user = ?", [$id]);
 }
 
+
+
 ?>

@@ -27,6 +27,7 @@
                 <a href="?page=includes/manageBioskop" class="block py-2.5 px-4 rounded transition duration-200 hover:bg-gray-700">Kelola Bioskop</a>
                 <a href="?page=includes/manageUser" class="block py-2.5 px-4 rounded transition duration-200 hover:bg-gray-700">Kelola Pengguna</a>
                 <a href="?page=includes/managePenayangan" class="block py-2.5 px-4 rounded transition duration-200 hover:bg-gray-700">Kelola Penayangan</a>
+                <a href="index.php" class="block py-2.5 px-4 rounded transition duration-200 hover:bg-gray-700">Home</a>
             </nav>
         </div>
 

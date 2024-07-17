@@ -59,14 +59,12 @@ function viewAllPenayangan(){
 
 function addPenayangan($harga, $tanggal, $id_film, $id_studio, $status_penayangan, $jam) {
     global $db;
-    $result = $db->query("INSERT INTO penayangan (harga, tanggal, id_film, id_studio, status_penayangan, jam) VALUES (?, ?, ?, ?, ?, ?)", 
+    $result = $db->query("INSERT INTO penayangan(harga, tanggal, id_film, id_studio, status_penayangan, jam) VALUES (?, ?, ?, ?, ?, ?)", 
                       [$harga, $tanggal, $id_film, $id_studio, $status_penayangan, $jam]);
-    
     if ($result) {
         $idResult = $db->query("SELECT id_penayangan FROM penayangan ORDER BY id_penayangan DESC LIMIT 1");
         if ($idResult) {
                 $id_penayangan = $idResult->fetch_assoc()['id_penayangan'];
-                // Generate seats for the new screening
                 generateSeat($id_penayangan);
                 return true;
         } else {
@@ -91,13 +89,13 @@ function generateSeat($id_penayangan) {
     global $db;
 
     $huruf = range('A', 'J');
-    $angka = range(1, 20);
+    $angka = range(1, 10);
     $seatCount = 0;
 
     foreach ($huruf as $h) {
         foreach ($angka as $a) {
             $kode_kursi = $h . $a;
-            $result = $db->query("INSERT INTO pemesanan (id_penayangan, kode_kursi) VALUES (?, ?)", [$id_penayangan, $kode_kursi]);
+            $result = $db->query("INSERT INTO pemesanan(id_penayangan, kode_kursi) VALUES (?, ?)", [$id_penayangan, $kode_kursi]);
             if ($result) {
                 $seatCount++;
             }
@@ -113,19 +111,12 @@ function deleteSeat($id_penayangan){
 
 function getAllSeats($id_penayangan) {
     global $db;
-    return $db->query("SELECT * FROM pemesanan WHERE id_penayangan = ?", 
-    [$id_penayangan]);
+    return $db->query("SELECT * FROM pemesanan WHERE id_penayangan = ?", [$id_penayangan]);
 }
 
-function sellSeat($id_seat, $id_user){
+function sellSeat($id_pemesanan, $id_user){
     global $db;
-    return $db->query("UPDATE pemesanan SET id_user = ?, ketersediaan = 'terjual', WHERE id_pemesanan = ?",
-    [$id_user, $id_seat]);
+    return $db->query("UPDATE pemesanan SET id_user = ?, status = 'terjual' WHERE id_pemesanan = ?", [$id_user, $id_pemesanan]);
 }
-
-
-
-
-
 
 ?>

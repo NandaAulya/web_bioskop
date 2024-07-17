@@ -17,16 +17,6 @@
 <body style="background-color: #060614">
 
     <?php include "includes/navbar.php" ?>
-    <!-- Dropdown -->
-
-    <?php include "includes/dropKota.php" ?>
-    <!-- <?php $kota = $_GET['kota'];
-    if ($kota == '') {
-        $film = getFilms();
-    } else {
-        $film = $kota;
-    }
-    ?> -->
 
     <!-- Card -->
     <div

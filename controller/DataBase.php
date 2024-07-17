@@ -37,24 +37,44 @@ class Database
     public function query($sql, $params = [])
     {
         $stmt = $this->connection->prepare($sql);
-
+    
         if (!$stmt) {
+            error_log("Failed to prepare statement: " . $this->connection->error);
             return false; // Failed to prepare statement
         }
-
+    
         if (!empty($params)) {
             $types = str_repeat('s', count($params)); // Assume all parameters are strings
-            $stmt->bind_param($types, ...$params);
+            if (!$stmt->bind_param($types, ...$params)) {
+                error_log("Failed to bind parameters: " . $stmt->error);
+                return false; // Failed to bind parameters
+            }
         }
-
-        $stmt->execute();
+    
+        if (!$stmt->execute()) {
+            error_log("Failed to execute statement: " . $stmt->error);
+            return false; // Execution failed
+        }
+    
         $result = $stmt->get_result();
-
+    
+        if ($result === false) {
+            // If the result is false, it means the query was not a SELECT
+            // Check if it's an INSERT, UPDATE, or DELETE
+            if ($stmt->affected_rows > 0) {
+                $stmt->close();
+                return true; // For non-SELECT queries, return true if rows were affected
+            } else {
+                $stmt->close();
+                return false; // No rows affected, return false
+            }
+        }
+    
         $stmt->close();
-
+    
         return $result;
     }
-
+    
     public function close()
     {
         $this->connection->close();

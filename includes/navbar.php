@@ -69,7 +69,7 @@
                         <form action="auth/login.php" method="post">
                             <?php if (isset($_SESSION['user_id'])): ?>
                                 <p class="block px-4 py-2 text-sm text-gray-800 hover:bg-gray-100" role="menuitem" tabindex="-1">Halo <?php echo $_SESSION['username']?></p>
-                                <a href="#" class="block px-4 py-2 text-sm text-gray-800 hover:bg-gray-100" role="menuitem" tabindex="-1" id="profile">Your Profile</a>
+                                <a href="profile.php" class="block px-4 py-2 text-sm text-gray-800 hover:bg-gray-100" role="menuitem" tabindex="-1" id="profile">Your Profile</a>
                                 <?php if ($_SESSION['role'] == 'admin'): ?>
                                     <a href="admin.php" class="block px-4 py-2 text-sm text-gray-800 hover:bg-gray-100" role="menuitem" tabindex="-1" >Admin Panel</a>
                                 <?php endif; ?>
